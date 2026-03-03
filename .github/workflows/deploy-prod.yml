@@ -59,8 +59,8 @@ jobs:
       
       - name: Set public access
         run: |
-          # Make all files publicly readable
-          gsutil -m acl ch -u AllUsers:R "gs://${{ env.BUCKET_NAME }}/**"
+          # Make bucket publicly readable using IAM (simpler than ACLs)
+          gsutil iam ch allUsers:objectViewer gs://${{ env.BUCKET_NAME }}
       
       - name: Invalidate CDN cache (if configured)
         run: |
