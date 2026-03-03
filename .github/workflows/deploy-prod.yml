@@ -29,6 +29,7 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.WIF_PROVIDER_PROD }}
           service_account: ${{ secrets.WIF_SERVICE_ACCOUNT_PROD }}
+          token_format: access_token
       
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
