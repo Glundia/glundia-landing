@@ -1,0 +1,524 @@
+:root {
+    /* Glundia Brand Colors from theme.dart */
+    --dark-glundia: #1A0028;
+    --purple-glundia: #D0CEFD;
+    --yellow-glundia: #EDEDD9;
+    --pink-glundia: #FCDBD0;
+    
+    /* Semantic colors */
+    --primary: var(--purple-glundia);
+    --secondary: var(--dark-glundia);
+    --accent: var(--pink-glundia);
+    --background: var(--yellow-glundia);
+    
+    /* Typography */
+    --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* Border radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--secondary);
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Header */
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(26, 0, 40, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    display: none; /* Hide text, show only logo */
+}
+
+nav {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.lang-toggle {
+    background: var(--purple-glundia);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lang-toggle:hover {
+    background: var(--pink-glundia);
+    transform: translateY(-1px);
+}
+
+.lang-toggle:active {
+    transform: translateY(0);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--purple-glundia) 0%, var(--pink-glundia) 100%);
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+}
+
+.hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* App Badges */
+.app-badges {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 160px;
+    height: 60px;
+}
+
+.badge span {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.badge strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(26, 0, 40, 0.2);
+}
+
+/* Features Section */
+.features {
+    padding: var(--spacing-xxl) 0;
+    background-color: white;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.feature-card {
+    background: var(--background);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(26, 0, 40, 0.1);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-card p {
+    color: var(--secondary);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta {
+    background: var(--secondary);
+    color: white;
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.cta h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    border-top: 1px solid rgba(26, 0, 40, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-section h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section p {
+    color: var(--secondary);
+    opacity: 0.7;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-section ul li a {
+    color: var(--secondary);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(26, 0, 40, 0.1);
+    color: var(--secondary);
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* Legal Pages */
+.legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background: white;
+    min-height: 60vh;
+}
+
+.legal-page h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.legal-page .date {
+    color: var(--secondary);
+    opacity: 0.6;
+    font-style: italic;
+    margin-bottom: var(--spacing-xl);
+}
+
+.legal-page h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.legal-page h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.legal-page p {
+    color: var(--secondary);
+    opacity: 0.85;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+.legal-page ul {
+    margin-bottom: var(--spacing-md);
+    margin-left: var(--spacing-lg);
+}
+
+.legal-page ul li {
+    color: var(--secondary);
+    opacity: 0.85;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.7;
+}
+
+.legal-page ol {
+    margin-bottom: var(--spacing-md);
+    margin-left: var(--spacing-lg);
+}
+
+.legal-page ol li {
+    color: var(--secondary);
+    opacity: 0.85;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.7;
+}
+
+.legal-page a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary);
+}
+
+.legal-page a:hover {
+    opacity: 0.8;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: var(--spacing-xxl) 0;
+    background: white;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--secondary);
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.step {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(208, 206, 253, 0.1) 0%, rgba(252, 219, 208, 0.1) 100%);
+    border-radius: var(--radius-lg);
+    transition: transform 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--purple-glundia) 0%, var(--pink-glundia) 100%);
+    color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 auto var(--spacing-md);
+}
+
+.step h3 {
+    font-size: 1.35rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--secondary);
+}
+
+.step p {
+    color: var(--secondary);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        gap: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta h2 {
+        font-size: 1.75rem;
+    }
+    
+    .legal-page h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header .container {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .app-badges {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .badge {
+        width: 100%;
+    }
+}
