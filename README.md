@@ -2,6 +2,10 @@
 
 Static website for Glundia app with legal documentation (Privacy Policy, Terms of Service, Support).
 
+## 📚 Documentation
+
+For comprehensive project documentation, see the [glundia-docs](https://github.com/Glundia/glundia-docs) repository.
+
 ## Files
 
 - `index.html` - Main landing page
